@@ -1,0 +1,22 @@
+https://github.com/yangboz/LotteryPrediction/wiki#how-can-i-install-and-use-it
+
+# run
+D:
+cd D:/vu/mytool/LotteryPrediction/services
+conda activate py37
+uvicorn app.main:app --host 0.0.0.0 --port 1122
+
+# postman
+POST    0.0.0.0:1122/uploadfile/
+form-data
+file    *.csv
+PUT     0.0.0.0:1122/fit/
+raw     JSON
+{
+    "growth": "linear",
+    "range": 0.05
+}
+GET    0.0.0.0:1122/predict/2023-04-14?futureDay=2023-04-14    
+0.0.0.0:1122/predict/2023-04-14
+Params
+futureDay       2023-04-14
